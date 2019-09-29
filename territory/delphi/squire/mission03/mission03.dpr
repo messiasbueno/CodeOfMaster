@@ -21,6 +21,8 @@ uses
   uSeller in 'uSeller.pas';
 
 procedure main;
+const
+ cFormat: string = '###,###,##0.00';
 var
   oSeller: TSeller;
   sValue: string;
@@ -65,9 +67,9 @@ begin
     writeln(EmptyStr);
     writeln('========== Seller ==========');
     writeln('        Name: '+ oSeller.Name);
-    writeln('Fixed salary: '+ FormatFloat('####0.00',oSeller.Salary));
-    writeln('  Total sale: '+ FormatFloat('####0.00',oSeller.TotalSale));
-    writeln('Total salary: '+ FormatFloat('####0.00',oSeller.TotalSalary));
+    writeln('Fixed salary: '+ FormatFloat(cFormat,oSeller.Salary));
+    writeln('  Total sale: '+ FormatFloat(cFormat,oSeller.TotalSale));
+    writeln('Total salary: '+ FormatFloat(cFormat,oSeller.TotalSalary));
     writeln('============================');
     Readln;
   finally
