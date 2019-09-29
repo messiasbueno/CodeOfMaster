@@ -42,7 +42,7 @@ begin
     end;
 
     nResult := factorial(nValue);
-    writeln(Format('Fatorial de "%0.0f" é %0.0f',[nValue,nResult]));
+    writeln(Format('Factorial of "%0.0f" is %0.0f',[nValue,nResult]));
     readln;
     break;
   end;
