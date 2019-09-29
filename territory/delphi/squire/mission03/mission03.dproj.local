@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/08/18 20:47:10.000.060,=C:\Users\Messias\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/09/28 21:19:27.635,D:\GIT\CodeOfMaster\territory\delphi\squire\mission03\mission03.dproj=C:\Users\Messias\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2019/09/28 21:19:39.109,=D:\GIT\CodeOfMaster\territory\delphi\squire\mission03\Unit1.pas</Transaction>
+    <Transaction>2019/09/28 21:19:58.025,D:\GIT\CodeOfMaster\territory\delphi\squire\mission03\uVendedor.pas=D:\GIT\CodeOfMaster\territory\delphi\squire\mission03\Unit1.pas</Transaction>
+    <Transaction>2019/09/28 22:12:35.826,D:\GIT\CodeOfMaster\territory\delphi\squire\mission03\uSeller.pas=D:\GIT\CodeOfMaster\territory\delphi\squire\mission03\uVendedor.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>
