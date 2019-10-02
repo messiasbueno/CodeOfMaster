@@ -20,9 +20,20 @@ uses
   System.SysUtils,
   System.StrUtils;
 
+function canChangeBox(pWord: string): Boolean;
+begin
+  Result := (
+    (Length(pWord) > 1) and
+    (not (MatchStr(pWord.ToLower,['da','de','do','das','dos'])))
+  );
+end;
+
 function convertMixedBox(pWord: string): string; overload;
 begin
-  Result := string(pWord[1]).toUpper + Copy(pWord,2);
+  if (canChangeBox(pWord)) then
+    Result := string(pWord[1]).toUpper + string(Copy(pWord,2)).ToLower
+  else
+    Result := pWord.ToLower;
 end;
 
 procedure convertMixedBox(pList: TArray<string>); overload;
@@ -40,10 +51,8 @@ begin
     begin
       if (sModifiedWord.IsEmpty) then
         sModifiedWord := convertMixedBox(sWord)
-      else if (Length(sWord) > 3) then
-        sModifiedWord := sModifiedWord + cDelimiter + convertMixedBox(sWord)
       else
-        sModifiedWord := sModifiedWord + cDelimiter +  sWord;
+        sModifiedWord := sModifiedWord + cDelimiter +  convertMixedBox(sWord);
     end;
     pList[nIndex] := sModifiedWord;
   end;
