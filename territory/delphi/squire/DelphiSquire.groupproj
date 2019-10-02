@@ -24,6 +24,12 @@
         <Projects Include="mission06\mission06.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="mission07\mission07dll.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="mission07\mission07.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -95,14 +101,32 @@
     <Target Name="mission06:Make">
         <MSBuild Projects="mission06\mission06.dproj" Targets="Make"/>
     </Target>
+    <Target Name="mission07dll">
+        <MSBuild Projects="mission07\mission07dll.dproj"/>
+    </Target>
+    <Target Name="mission07dll:Clean">
+        <MSBuild Projects="mission07\mission07dll.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="mission07dll:Make">
+        <MSBuild Projects="mission07\mission07dll.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="mission07">
+        <MSBuild Projects="mission07\mission07.dproj"/>
+    </Target>
+    <Target Name="mission07:Clean">
+        <MSBuild Projects="mission07\mission07.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="mission07:Make">
+        <MSBuild Projects="mission07\mission07.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="mission01;mission02;mission03;mission04;mission05;mission06dll;mission06"/>
+        <CallTarget Targets="mission01;mission02;mission03;mission04;mission05;mission06dll;mission06;mission07dll;mission07"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="mission01:Clean;mission02:Clean;mission03:Clean;mission04:Clean;mission05:Clean;mission06dll:Clean;mission06:Clean"/>
+        <CallTarget Targets="mission01:Clean;mission02:Clean;mission03:Clean;mission04:Clean;mission05:Clean;mission06dll:Clean;mission06:Clean;mission07dll:Clean;mission07:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="mission01:Make;mission02:Make;mission03:Make;mission04:Make;mission05:Make;mission06dll:Make;mission06:Make"/>
+        <CallTarget Targets="mission01:Make;mission02:Make;mission03:Make;mission04:Make;mission05:Make;mission06dll:Make;mission06:Make;mission07dll:Make;mission07:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
