@@ -33,7 +33,7 @@ begin
   SetLength(aLeft,nMiddle);
   SetLength(aRight,(Length(pList)-nMiddle));
 
-  for nIndex := 0 to Pred(nMiddle) do
+  for nIndex := System.Math.ZeroValue to Pred(nMiddle) do
     aLeft[nIndex] := pList[nIndex];
 
   for nIndex := nMiddle  to Pred(Length(pList)) do
@@ -42,9 +42,9 @@ begin
   aLeft := Sort(aLeft);
   aRight := Sort(aRight);
 
-  nIndex := 0;
-  nLeft := 0;
-  nRight := 0;
+  nIndex := System.Math.ZeroValue;
+  nLeft := System.Math.ZeroValue;
+  nRight := System.Math.ZeroValue;
   while (Length(aLeft) <> nLeft) and (Length(aRight) <> nRight) do
   begin
     if (aLeft[nLeft] <= aRight[nRight]) then

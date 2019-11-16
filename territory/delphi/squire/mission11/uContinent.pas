@@ -7,17 +7,16 @@ type
     ctAfrica,
     ctAsia,
     ctEurope,
-    ctNorthAmerica,
-    ctSouthAmerica,
+    ctAmerica,
     cdAntarctica,
-    ctAustralia
+    ctOceania
   );
 
   TContinentHelper = record helper for TContinent
     function AsLabel: string;
     function AsString: string;
     function AsByte: SmallInt;
-    function Parse(pContinent: SmallInt): TContinent;
+    function Parse(const pContinent: SmallInt): TContinent;
   end;
 
 Const
@@ -25,10 +24,9 @@ Const
     ctAfrica,
     ctAsia,
     ctEurope,
-    ctNorthAmerica,
-    ctSouthAmerica,
+    ctAmerica,
     cdAntarctica,
-    ctAustralia
+    ctOceania
   ];
 
 implementation
@@ -46,10 +44,9 @@ begin
     ctAfrica: Result := 'Africa';
     ctAsia: Result := 'Asia';
     ctEurope: Result := 'Europe';
-    ctNorthAmerica: Result := 'North America';
-    ctSouthAmerica: Result := 'South America';
+    ctAmerica: Result := 'America';
     cdAntarctica: Result := 'Antarctica';
-    ctAustralia: Result := 'Australia';
+    ctOceania: Result := 'Oceania';
   end;
 end;
 
@@ -59,14 +56,13 @@ begin
     ctAfrica: Result := 'ctAfrica';
     ctAsia: Result := 'ctAsia';
     ctEurope: Result := 'ctEurope';
-    ctNorthAmerica: Result := 'ctNorthAmerica';
-    ctSouthAmerica: Result := 'ctSouthAmerica';
+    ctAmerica: Result := 'ctAmerica';
     cdAntarctica: Result := 'cdAntarctica';
-    ctAustralia: Result := 'ctAustralia';
+    ctOceania: Result := 'ctOceania';
   end;
 end;
 
-function TContinentHelper.Parse(pContinent: SmallInt): TContinent;
+function TContinentHelper.Parse(const pContinent: SmallInt): TContinent;
 begin
   Result := TContinent(pContinent);
 end;

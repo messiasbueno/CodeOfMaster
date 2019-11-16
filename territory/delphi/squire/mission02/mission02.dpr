@@ -23,8 +23,7 @@ var
   sList: string;
   aList: TArray<Integer>;
 begin
-  while True do
-  begin
+  repeat
     write('Enter a comma-separated list of numbers: ');
     readln(sList);
 
@@ -39,7 +38,7 @@ begin
     Writeln('Ordered List: ' + TUtils.ArrayIntToStr(aList));
     readln;
     break;
-  end;
+  until False;
 end;
 
 begin

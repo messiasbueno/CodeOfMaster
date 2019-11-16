@@ -6,7 +6,16 @@ uses
   System.SysUtils, System.Generics.Collections;
 
 type
-  TStack<T> = class(TObject)
+  IStack<T> = interface
+  ['{FB717B81-3475-4E19-9235-CAF0A44CD02B}']
+    procedure Push(Const pItem: T);
+    function Pop: T;
+    function Peek: T;
+    function Size: Integer;
+    function IsEmpty: Boolean;
+  end;
+
+  TStack<T> = Class(TInterfacedObject, IStack<T>)
   private
     FList: TList<T>;
   public

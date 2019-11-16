@@ -12,8 +12,7 @@ type
 implementation
 
 uses
-  System.RTTI,
-  uNotepad;
+  System.RTTI;
 
 { TMagicCreator }
 

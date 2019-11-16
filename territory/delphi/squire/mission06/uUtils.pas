@@ -24,6 +24,7 @@ uses
 
 const
   cNameDLL = 'mission06dll.dll';
+  cDllNotFound = 'Dll not found.';
 
 { TUtils }
 
@@ -64,7 +65,6 @@ begin
   until false;
   nHeight := StrToFloat(sValue);
 
-  nArea := 0;
   oHandle := LoadLibrary(cNameDLL);
   try
     if (oHandle <> 0) then
@@ -72,13 +72,16 @@ begin
       oCalculateTriangleAreaDLL := GetProcAddress(oHandle, pWideChar('calculateTriangleArea'));
 
       nArea := oCalculateTriangleAreaDLL(nBase, nHeight);
-    end;
+
+      Writeln(Format('The area of the triangle is %0.2f',[nArea]));
+    end
+    else
+      Writeln(cDllNotFound);
+
+    Readln;
   finally
     FreeLibrary(oHandle);
   end;
-
-  Writeln(Format('The area of the triangle is %0.2f',[nArea]));
-  Readln;
 end;
 
 class procedure TUtils.calculateSquareArea;
@@ -118,7 +121,6 @@ begin
   until false;
   nSideB := StrToFloat(sValue);
 
-  nArea := 0;
   oHandle := LoadLibrary(cNameDLL);
   try
     if (oHandle <> 0) then
@@ -126,13 +128,16 @@ begin
       oCalculateSquareAreaDLL := GetProcAddress(oHandle, pWideChar('calculateSquareArea'));
 
       nArea := oCalculateSquareAreaDLL(nSideA, nSideB);
-    end;
+
+      Writeln(Format('The area of the Square is %0.2f',[nArea]));
+    end
+    else
+      Writeln(cDllNotFound);
+
+    Readln;
   finally
     FreeLibrary(oHandle);
   end;
-
-  Writeln(Format('The area of the Square is %0.2f',[nArea]));
-  Readln;
 end;
 
 class procedure TUtils.calculateCircleArea;
@@ -157,7 +162,6 @@ begin
   until false;
   nRadius := StrToFloat(sValue);
 
-  nArea := 0;
   oHandle := LoadLibrary(cNameDLL);
   try
     if (oHandle <> 0) then
@@ -165,13 +169,16 @@ begin
       oCalculateCircleAreaDLL := GetProcAddress(oHandle, pWideChar('calculateCircleArea'));
 
       nArea := oCalculateCircleAreaDLL(nRadius);
-    end;
+
+      Writeln(Format('The area of the circle is %0.2f',[nArea]));
+    end
+    else
+      Writeln(cDllNotFound);
+
+    Readln;
   finally
     FreeLibrary(oHandle);
   end;
-
-  Writeln(Format('The area of the circle is %0.2f',[nArea]));
-  Readln;
 end;
 
 end.

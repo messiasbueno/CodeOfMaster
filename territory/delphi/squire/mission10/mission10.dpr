@@ -108,7 +108,7 @@ begin
          end;
     end;
 
-    Writeln('Operation result is:' + oMathematicalClass.MathematicalOperation.ToString);
+    Writeln('Operation result is: ' + oMathematicalClass.MathematicalOperation.ToString);
     Readln;
   finally
     oMathematicalClass.Free;

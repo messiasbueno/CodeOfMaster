@@ -35,68 +35,64 @@ uses
 
 procedure main;
 var
-  oStackString: TStack<string>;
-  oStackInteger: TStack<Integer>;
+  oStackString: IStack<string>;
+  oStackInteger: IStack<Integer>;
   sValue: string;
 begin
   oStackString := TStack<string>.create;
   oStackInteger := TStack<Integer>.create;
-  try
-    repeat
-      Write('Enter text value or \end to end: ');
-      Readln(sValue);
 
-      if (sValue.ToLower.Equals('\end')) then
-        Break;
+  repeat
+    Write('Enter text value or \end to end: ');
+    Readln(sValue);
 
-      if (sValue.Trim.IsEmpty) then
-      begin
-        writeln('Value is invalid.');
-        writeln(EmptyStr);
-        Continue;
-      end;
-      oStackString.Push(sValue);
-    until False;
+    if (sValue.ToLower.Equals('\end')) then
+      Break;
 
-    repeat
-      Write('Enter number value or \end to end: ');
-      Readln(sValue);
+    if (sValue.Trim.IsEmpty) then
+    begin
+      writeln('Value is invalid.');
+      writeln(EmptyStr);
+      Continue;
+    end;
+    oStackString.Push(sValue);
+  until False;
 
-      if (sValue.ToLower.Equals('\end')) then
-        Break;
+  repeat
+    Write('Enter number value or \end to end: ');
+    Readln(sValue);
 
-      if (StrToIntDef(sValue,ZeroValue) <= ZeroValue) then
-      begin
-        writeln('Value is invalid.');
-        writeln(EmptyStr);
-        Continue;
-      end;
-      oStackInteger.Push(sValue.ToInteger);
-    until False;
+    if (sValue.ToLower.Equals('\end')) then
+      Break;
 
-    Writeln(EmptyStr);
-    Writeln('String stack quantity: ' + oStackString.Size.ToString);
-    Writeln('Integer stack quantity: ' + oStackInteger.Size.ToString);
-    Readln;
+    if (StrToIntDef(sValue,ZeroValue) <= ZeroValue) then
+    begin
+      writeln('Value is invalid.');
+      writeln(EmptyStr);
+      Continue;
+    end;
+    oStackInteger.Push(sValue.ToInteger);
+  until False;
 
-    Writeln('String stack:');
-    while (not oStackString.IsEmpty) do
-      Writeln(oStackString.Pop);
-    Readln;
+  Writeln(EmptyStr);
+  Writeln('String stack quantity: ' + oStackString.Size.ToString);
+  Writeln('Integer stack quantity: ' + oStackInteger.Size.ToString);
+  Readln;
 
-    Writeln('Integer stack:');
-    while (not oStackString.IsEmpty) do
-      Writeln(oStackInteger.Pop.ToString);
-    Readln;
+  Writeln('String stack:');
+  while (not oStackString.IsEmpty) do
+    Writeln(oStackString.Pop);
+  Readln;
 
-    Writeln(EmptyStr);
-    Writeln('String stack quantity: ' + oStackString.Size.ToString);
-    Writeln('Integer stack quantity: ' + oStackInteger.Size.ToString);
-    Readln;
-  finally
-    oStackString.Free;
-    oStackInteger.Free;
-  end;
+  Writeln('Integer stack:');
+  while (not oStackInteger.IsEmpty) do
+    Writeln(oStackInteger.Pop.ToString);
+  Readln;
+
+  Writeln(EmptyStr);
+  Writeln('String stack quantity: ' + oStackString.Size.ToString);
+  Writeln('Integer stack quantity: ' + oStackInteger.Size.ToString);
+  Readln;
 end;
 
 begin

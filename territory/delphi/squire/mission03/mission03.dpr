@@ -24,57 +24,51 @@ procedure main;
 const
  cFormat: string = '###,###,##0.00';
 var
-  oSeller: TSeller;
+  oSeller: ISeller;
   sValue: string;
 begin
   oSeller := TSeller.Create;
-  try
-    Write('Enter seller name: ');
+  Write('Enter seller name: ');
+  readln(sValue);
+  oSeller.Name := sValue;
+
+  repeat
+    Write('Enter the fixed salary: ');
     readln(sValue);
-    oSeller.Name := sValue;
 
-    while True do
+    if (StrToFloatDef(sValue,0) <= 0) then
     begin
-      Write('Enter the fixed salary: ');
-      readln(sValue);
-
-      if (StrToFloatDef(sValue,0) <= 0) then
-      begin
-        writeln('Fixed salary entered is invalid.');
-        writeln(EmptyStr);
-        continue;
-      end;
-      Break;
+      writeln('Fixed salary entered is invalid.');
+      writeln(EmptyStr);
+      continue;
     end;
-    oSeller.Salary := sValue.ToDouble;
+    Break;
+  until False;
+  oSeller.Salary := sValue.ToDouble;
 
-    while True do
+  repeat
+    Write('Enter the total sales: ');
+    readln(sValue);
+
+    if (StrToFloatDef(sValue,0) <= 0) then
     begin
-      Write('Enter the total sales: ');
-      readln(sValue);
-
-      if (StrToFloatDef(sValue,0) <= 0) then
-      begin
-        writeln('Total sales reported is invalid.');
-        writeln(EmptyStr);
-        continue;
-      end;
-      Break;
+      writeln('Total sales reported is invalid.');
+      writeln(EmptyStr);
+      continue;
     end;
-    oSeller.TotalSale := sValue.ToDouble;
+    Break;
+  until False;
+  oSeller.TotalSale := sValue.ToDouble;
 
-    writeln(EmptyStr);
-    writeln(EmptyStr);
-    writeln('========== Seller ==========');
-    writeln('        Name: '+ oSeller.Name);
-    writeln('Fixed salary: '+ FormatFloat(cFormat,oSeller.Salary));
-    writeln('  Total sale: '+ FormatFloat(cFormat,oSeller.TotalSale));
-    writeln('Total salary: '+ FormatFloat(cFormat,oSeller.TotalSalary));
-    writeln('============================');
-    Readln;
-  finally
-    oSeller.Free;
-  end;
+  writeln(EmptyStr);
+  writeln(EmptyStr);
+  writeln('========== Seller ==========');
+  writeln('        Name: '+ oSeller.Name);
+  writeln('Fixed salary: '+ FormatFloat(cFormat,oSeller.Salary));
+  writeln('  Total sale: '+ FormatFloat(cFormat,oSeller.TotalSale));
+  writeln('Total salary: '+ FormatFloat(cFormat,oSeller.TotalSalary));
+  writeln('============================');
+  Readln;
 end;
 
 begin

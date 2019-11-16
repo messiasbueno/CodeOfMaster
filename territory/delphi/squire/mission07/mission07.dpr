@@ -17,7 +17,7 @@ program mission07;
 uses
   System.SysUtils;
 
-function valueByExtensive(pValue: Currency): string;
+function valueByExtensive(const pValue: Currency): string;
   external 'mission07dll';
 
 procedure main;

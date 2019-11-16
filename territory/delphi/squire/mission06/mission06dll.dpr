@@ -6,18 +6,18 @@ uses
 
 {$R *.res}
 
-function calculateTriangleArea(pBase, pHeight: Extended): Extended;
+function calculateTriangleArea(const pBase, pHeight: Extended): Extended;
 begin
   Result := (pBase * pHeight) / 2;
 
 end;
 
-function calculateSquareArea(pSideA, pSideB: Extended): Extended;
+function calculateSquareArea(const pSideA, pSideB: Extended): Extended;
 begin
   Result := pSideA * pSideB;
 end;
 
-function calculateCircleArea(pRadius: Extended): Extended;
+function calculateCircleArea(const pRadius: Extended): Extended;
 begin
   Result := System.Pi * (pRadius * pRadius);
 end;

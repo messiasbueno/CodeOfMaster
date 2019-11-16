@@ -56,7 +56,7 @@ begin
     raise Exception.Create('List is Empty');
 
   if (Self.HasDuplicate) then
-    raise Exception.Create('List has not Duplicate item');
+    raise Exception.Create('List has Duplicate item');
 
   for nIndex := ZeroValue to Pred(Self.Count) do
   begin

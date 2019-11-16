@@ -14,7 +14,7 @@ program mission01;
 uses
   System.SysUtils;
 
-function factorial(pValue: extended): extended;
+function factorial(const pValue: extended): extended;
 begin
   if (pValue = 1) then
     Exit(pValue);
@@ -28,8 +28,7 @@ var
   nValue: Extended;
   nResult: Extended;
 begin
-  while True do
-  begin
+  repeat
     write('Enter a value greater than zero and less than twenty: ');
     readln(sValue);
     nValue := StrToInt64Def(sValue,0);
@@ -45,7 +44,7 @@ begin
     writeln(Format('Factorial of "%0.0f" is %0.0f',[nValue,nResult]));
     readln;
     break;
-  end;
+  until False;
 end;
 
 begin

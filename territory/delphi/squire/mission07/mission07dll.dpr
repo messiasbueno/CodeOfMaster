@@ -7,7 +7,7 @@ uses
 
 {$R *.res}
 
-function valueByExtensive(pValue: Currency): string;
+function valueByExtensive(const pValue: Currency): string;
 var
   oUtils: TUtils;
 begin

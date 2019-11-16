@@ -56,9 +56,7 @@ begin
   Writeln(EmptyStr);
   Writeln('=================== List ===================');
   for sItem in aList do
-  begin
     Writeln(sItem);
-  end;
   Writeln('============================================');
   readln;
 end;

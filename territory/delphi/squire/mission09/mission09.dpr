@@ -32,13 +32,14 @@ uses
   uEmployee in 'uEmployee.pas',
   uCacheObjects in 'uCacheObjects.pas';
 
-procedure Print(pEmployee: TEmployee);
+procedure Print(const pEmployee: TEmployee);
 begin
   Writeln('Memory Address : ' + Integer(pEmployee).ToString);
   Writeln('Name: ' + pEmployee.Name);
   Writeln('Email: ' + pEmployee.Email);
   Writeln('Phone: ' + pEmployee.Phone);
 end;
+
 procedure main;
 var
   oCacheObjects: TCacheObjects;
@@ -64,7 +65,7 @@ begin
 
     Writeln('Changing oEmployee2 object');
     oEmployee2.Name := 'Messias Bueno';
-    Writeln('Values Populated in oEmployee1:');
+    Writeln(sLineBreak+'Values Populated in oEmployee1:');
     Print(oEmployee1);
     Writeln(sLineBreak+'Values Populated in oEmployee2:');
     Print(oEmployee2);

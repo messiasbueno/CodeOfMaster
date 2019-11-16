@@ -18,7 +18,8 @@ program mission13;
 uses
   System.SysUtils,
   uInterface in 'uInterface.pas',
-  uFile in 'uFile.pas';
+  uFile in 'uFile.pas',
+  Vcl.Forms;
 
 procedure main;
 var
@@ -28,7 +29,7 @@ var
 begin
   oFileWrite := TFile.Create;
   oFile := oFileWrite as TFile;
-  oFile.Path := 'c:\Disk';
+  oFile.Path := ExtractFilePath(Application.exename);
   oFile.FileName := 'Mission 13.txt';
 
   oFile.FileList.Add('Row one');

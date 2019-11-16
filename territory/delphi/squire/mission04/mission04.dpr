@@ -20,7 +20,7 @@ uses
   System.SysUtils,
   System.StrUtils;
 
-function canChangeBox(pWord: string): Boolean;
+function canChangeBox(const pWord: string): Boolean;
 begin
   Result := (
     (Length(pWord) > 1) and
@@ -28,7 +28,7 @@ begin
   );
 end;
 
-function convertMixedBox(pWord: string): string; overload;
+function convertMixedBox(const pWord: string): string; overload;
 begin
   if (canChangeBox(pWord)) then
     Result := string(pWord[1]).toUpper + string(Copy(pWord,2)).ToLower
@@ -36,7 +36,7 @@ begin
     Result := pWord.ToLower;
 end;
 
-procedure convertMixedBox(pList: TArray<string>); overload;
+procedure convertMixedBox(const pList: TArray<string>); overload;
 const
   cDelimiter: string = ' ';
 var
@@ -64,8 +64,7 @@ var
   sValue: string;
   sItem: string;
 begin
-  while True do
-  begin
+  repeat
     write('Enter a name or the word "end" to end: ');
     readln(sValue);
 
@@ -74,7 +73,7 @@ begin
 
     SetLength(aList,Succ(Length(aList)));
     aList[Pred(Length(aList))] := sValue;
-  end;
+  until False;
 
   convertMixedBox(aList);
 
