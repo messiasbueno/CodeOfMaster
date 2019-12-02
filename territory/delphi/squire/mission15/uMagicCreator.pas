@@ -29,9 +29,12 @@ begin
 
   oRttiMethod := oRttiInstanceType.GetMethod('Create');
   rInstance := oRttiMethod.Invoke(oRttiInstanceType.MetaclassType,[]);
-
-  oRttiMethod := oRttiInstanceType.GetMethod('Execute');
-  oRttiMethod.Invoke(rInstance, []);
+  try
+    oRttiMethod := oRttiInstanceType.GetMethod('Execute');
+    oRttiMethod.Invoke(rInstance, []);
+  finally
+    rInstance.AsObject.Free;
+  end;
 end;
 
 end.

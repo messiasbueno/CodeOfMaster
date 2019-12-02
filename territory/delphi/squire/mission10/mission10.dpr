@@ -39,7 +39,7 @@ begin
   Writeln('1ª - Addition');
   Writeln('2ª - Subtraction');
   Writeln('3ª - Multiplication');
-  Writeln('3ª - Division');
+  Writeln('4ª - Division');
   repeat
     Write('Select an option: ');
     Readln(sValue);
@@ -116,5 +116,6 @@ begin
 end;
 
 begin
+  ReportMemoryLeaksOnShutdown := True;
   main;
 end.

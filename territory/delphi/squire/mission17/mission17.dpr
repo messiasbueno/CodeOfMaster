@@ -41,16 +41,19 @@ begin
     );
 
     oRepositories := TJson.JsonToObject<TRepositories>(sValue);
-
-    for oRepository in oRepositories.Repositories do
-    begin
+    try
+      for oRepository in oRepositories.Repositories do
+      begin
+        Writeln('==============================================================');
+        Writeln('Id: ' + oRepository.Id.ToString);
+        Writeln('Name: ' + oRepository.Name);
+        Writeln('Html_url: ' + oRepository.Url);
+        Writeln('Description: ' + oRepository.Description);
+      end;
       Writeln('==============================================================');
-      Writeln('Id: ' + oRepository.Id.ToString);
-      Writeln('Name: ' + oRepository.Name);
-      Writeln('Html_url: ' + oRepository.Url);
-      Writeln('Description: ' + oRepository.Description);
+    finally
+      oRepositories.Free;
     end;
-    Writeln('==============================================================');
   finally
     oRest.Free;
   end;
@@ -59,5 +62,6 @@ begin
 end;
 
 begin
+  ReportMemoryLeaksOnShutdown := True;
   main;
 end.

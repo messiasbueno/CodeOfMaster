@@ -16,14 +16,23 @@ uses
   System.SysUtils,
   System.StrUtils;
 
+function PrepareWord(const pWord: string): string;
+type
+  USAscii20127 = type AnsiString(20127);
+begin
+  Result := string(USAscii20127(ReplaceStr(pWord,' ',EmptyStr)));
+end;
+
 function filterByPalindrome(var pList: TArray<string>): TArray<string>;
 var
   aList: TArray<string>;
   sItem: string;
+  sTreatedItem: string;
 begin
   for sItem in pList do
   begin
-    if (sItem.ToLower = ReverseString(sItem).ToLower) then
+    sTreatedItem := PrepareWord(sItem);
+    if (sTreatedItem.ToLower = ReverseString(sTreatedItem).ToLower) then
     begin
       SetLength(aList,Succ(Length(aList)));
       aList[Pred(Length(aList))] := sItem;
@@ -62,5 +71,6 @@ begin
 end;
 
 begin
+  ReportMemoryLeaksOnShutdown := True;
   main;
 end.

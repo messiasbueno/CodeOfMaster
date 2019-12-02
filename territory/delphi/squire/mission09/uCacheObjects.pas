@@ -30,7 +30,12 @@ begin
 end;
 
 destructor TCacheObjects.Destroy;
+var
+  vObject: TObject;
 begin
+  for vObject in Self.FList.Values do
+    vObject.Free;
+
   Self.FList.Free;
   inherited;
 end;

@@ -53,5 +53,6 @@ begin
 end;
 
 begin
+  ReportMemoryLeaksOnShutdown := True;
   main;
 end.

@@ -37,4 +37,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfMain, fMain);
   Application.Run;
+
+  ReportMemoryLeaksOnShutdown := True;
 end.

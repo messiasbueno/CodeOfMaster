@@ -28,9 +28,23 @@ type
     [JSONName('items')]
     FRepositories: TArray<TRepository>;
   public
+    Destructor Destroy; override;
+
     property Repositories: TArray<TRepository> read FRepositories;
   end;
 
 implementation
+
+{ TRepositories }
+
+destructor TRepositories.Destroy;
+var
+  oRepository: TRepository;
+begin
+  for oRepository in Self.FRepositories do
+    oRepository.Free;
+
+  inherited;
+end;
 
 end.

@@ -18,8 +18,9 @@ type
     procedure Valid;
     function PathFull: string;
   public
-    constructor Create; overload;
-    constructor Create(pFileList: TStringList); overload;
+    constructor Create(const pPath: string; const pFileName: string); overload;
+    constructor Create(const pPath: string; const pFileName: string;
+      pFileList: TStringList); overload;
     Destructor Destroy; Override;
 
     procedure ReadToFile;
@@ -34,16 +35,19 @@ type
 implementation
 
 { TStringList }
-
-constructor TFile.Create;
+constructor TFile.Create(const pPath, pFileName: string);
 begin
-  Self.FFileList := TStringList.Create;
+  Self.Create(pPath, pFileName, TStringList.Create);
   Self.FFileCreate := True;
 end;
 
-constructor TFile.Create(pFileList: TStringList);
+constructor TFile.Create(const pPath, pFileName: string;
+  pFileList: TStringList);
 begin
+  Self.FPath := pPath;
+  Self.FFileName := pFileName;
   Self.FFileList := pFileList;
+
   Self.FFileCreate := False;
 end;
 

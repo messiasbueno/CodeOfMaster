@@ -9,7 +9,6 @@ uses
 function calculateTriangleArea(const pBase, pHeight: Extended): Extended;
 begin
   Result := (pBase * pHeight) / 2;
-
 end;
 
 function calculateSquareArea(const pSideA, pSideB: Extended): Extended;

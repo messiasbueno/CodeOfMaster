@@ -21,37 +21,48 @@ uses
   uFile in 'uFile.pas',
   Vcl.Forms;
 
-procedure main;
+procedure SaveFile;
 var
-  oFileWrite: IFileWrite;
-  oFileRead: IFileRead;
-  oFile: TFile;
+  oFile: IFileWrite;
 begin
-  oFileWrite := TFile.Create;
-  oFile := oFileWrite as TFile;
-  oFile.Path := ExtractFilePath(Application.exename);
-  oFile.FileName := 'Mission 13.txt';
+  oFile := TFile.Create(
+    ExtractFilePath(Application.exename),
+    'Mission 13.txt'
+  );
 
-  oFile.FileList.Add('Row one');
-  oFile.FileList.Add('Row two');
-  oFile.FileList.Add('Row trhee');
-  oFile.FileList.Add('Row four');
+  TFile(oFile).FileList.Add('Row one');
+  TFile(oFile).FileList.Add('Row two');
+  TFile(oFile).FileList.Add('Row trhee');
+  TFile(oFile).FileList.Add('Row four');
 
   oFile.SaveToFile;
-  Writeln('Save file to folder ' + oFile.Path);
+  Writeln('Save file to folder ' + TFile(oFile).Path);
+end;
 
-  oFileRead := TFile.Create;
-  oFile := oFileRead as TFile;
-  oFile.Path := 'c:\Disk';
-  oFile.FileName := 'Mission 13.txt';
+procedure ReadFile;
+var
+  oFile: IFileRead;
+begin
+  oFile := TFile.Create(
+    ExtractFilePath(Application.exename),
+    'Mission 13.txt'
+  );
+
   oFile.ReadToFile;
 
   Writeln('Uploaded the file with the following information:');
-  Writeln(oFile.FileList.Text);
+  Writeln(TFile(oFile).FileList.Text);
+end;
+
+procedure main;
+begin
+  SaveFile;
+  ReadFile;
 
   Readln;
 end;
 
 begin
+  ReportMemoryLeaksOnShutdown := True;
   main;
 end.
