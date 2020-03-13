@@ -18,6 +18,9 @@
         <Projects Include="mission05\mission05.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="mission06\mission06.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -71,14 +74,23 @@
     <Target Name="mission05:Make">
         <MSBuild Projects="mission05\mission05.dproj" Targets="Make"/>
     </Target>
+    <Target Name="mission06">
+        <MSBuild Projects="mission06\mission06.dproj"/>
+    </Target>
+    <Target Name="mission06:Clean">
+        <MSBuild Projects="mission06\mission06.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="mission06:Make">
+        <MSBuild Projects="mission06\mission06.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="mission01;mission02;mission03;mission04;mission05"/>
+        <CallTarget Targets="mission01;mission02;mission03;mission04;mission05;mission06"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="mission01:Clean;mission02:Clean;mission03:Clean;mission04:Clean;mission05:Clean"/>
+        <CallTarget Targets="mission01:Clean;mission02:Clean;mission03:Clean;mission04:Clean;mission05:Clean;mission06:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="mission01:Make;mission02:Make;mission03:Make;mission04:Make;mission05:Make"/>
+        <CallTarget Targets="mission01:Make;mission02:Make;mission03:Make;mission04:Make;mission05:Make;mission06:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
