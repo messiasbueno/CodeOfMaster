@@ -27,8 +27,6 @@ Const
     '{"id":27,"name":"Tocantins","Abbreviation":"TO"}]';
 
 function Itens: TJSONArray;
-var
-  vJSon: TJSONArray;
 begin
   Result := TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(cDataState),0) as TJSONArray;
 end;
