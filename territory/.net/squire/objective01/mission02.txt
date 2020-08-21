@@ -1,0 +1,4 @@
+Inicialmente o C# foi criado para qual finalidade?
+
+Enable the creation of solutions through the .NET framework platform
+Aiming to unify development on a platform instead of a device.
