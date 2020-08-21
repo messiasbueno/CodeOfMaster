@@ -1,0 +1,3 @@
+Cite as principais diferenças entre .Net Full Framework e .Net Core.
+
+The .NET Framework was designed for Windows applications, while the .NET Core was created to be open source and multiplatform.
