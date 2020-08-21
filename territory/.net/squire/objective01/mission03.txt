@@ -1,0 +1,4 @@
+Quais os principais motivos para a Microsoft ter migrado para o Core?
+
+Become multiplatform.
+Facilitate connections to the cloud.
