@@ -1,0 +1,3 @@
+Em quais linguagens o C# foi inspirado?
+
+C, C++ e Java
